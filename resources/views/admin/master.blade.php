@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('admin/style/css/style.css')}}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        BASE_URL = "<?php echo url(''); ?>";
+    </script>
     
     {{-- <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -19,7 +25,7 @@
     <style>
         table{
             border:1px solid black;
-            width: 1250px;
+            width: 1100px;
             text-align: center;
         }
         th{
@@ -64,17 +70,25 @@
         #content_1 .description{
             width: 60%;
             float: right;
-            padding-top: 8%;
+            
         }
         #content_1 .description button{
             padding: 10px 10px;
-            background-color: rgb(10, 144, 206)
+            background-color: rgb(156, 158, 158)
         }
-        #content_1 .description button:hover{
+        /* #content_1 .description button:hover{
             background-color: rgb(8, 208, 243);
             color: rgb(131, 90, 1);
+        } */
+
+        .td_warning{
+            background-color: red;
+            pointer-events: none;
         }
     </style>
+
+    @yield('head')
+
     <title>Document</title>
 </head>
 <body class="dark">
@@ -261,5 +275,7 @@
     </div>
 
     <script src="{{asset('admin/style/js/scrip.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    @yield('js')
 </body>
 </html>

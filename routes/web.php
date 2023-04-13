@@ -24,3 +24,7 @@ Route::prefix('product')->name('product.')->group(function (){
 });
 
 Route::get('book/{slug}', 'BookingController@index')->name('book');
+
+Route::post('/getdate', 'BookingController@getdate')->name('getdate');
+
+Route::post('/store', 'BookingController@store')->name('booking.store');
