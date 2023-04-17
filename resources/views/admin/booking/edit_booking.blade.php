@@ -3,31 +3,40 @@
 <div class="main-content-header" style="background: rgb(206, 204, 204); width: 95%; height: 500px; margin-left: 30px;margin-top: 20px">
 
     <div class="card-body" style="margin: 30px;">
-        <form class="col-4" action="{{route('product.store')}}" enctype="multipart/form-data" method="POST">
+        <form class="col-4" action="{{route('admin.booking.update',$data->id)}}" enctype="multipart/form-data" method="POST">
             @csrf
             
             <div class="form-group">
-              <label>Name:</label>
-              <input name="name" class="form-control" >
-                @if ($errors->has('name'))
-                    <br>&emsp;&emsp;&emsp;&nbsp;<small style="color: red" class="text-danger form-text"><Table>{{$errors->first('name')}}</Table></small>
-                @endif
+              <label>Shop Name:</label>
+              <input class="form-control" disabled value="{{$data->Shop->name}}">
+                
             </div>
             <br>
             <div class="form-group">
-                <label>Price:</label> &nbsp;
-                <input name="price" class="form-control" >
-                  @if ($errors->has('price'))
-                      <br>&emsp;&emsp;&emsp;&nbsp;<small style="color: red" class="text-danger form-text"><Table>{{$errors->first('price')}}</Table></small>
-                  @endif
+                <label>Product:</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="form-control" disabled value="{{$data->Product->name}}">
             </div>
             <br>
             <div class="form-group">
-                <label>Image:</label>
-                <input type="file" name="image" id="">
-                  @if ($errors->has('image'))
-                      <br>&emsp;&emsp;&emsp;&nbsp;<small style="color: red" class="text-danger form-text"><Table>{{$errors->first('image')}}</Table></small>
-                  @endif
+                <label>Customer:</label> &nbsp;&nbsp;
+                <input class="form-control" disabled value="{{$data->Customer->name}}">&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>Phone:</label> &nbsp;
+                <input class="form-control" disabled value="{{$data->Customer->phone}}">
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Oder Time:</label> &nbsp;
+                <input class="form-control" disabled value="{{$data->oder_time ." / ". date('d-m-Y', strtotime($data->oder_date));}}">
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Status:</label> &nbsp;
+                <select name="status">
+                    <option value="1"{{$data->status == 1 ? 'selected' : false}}>Completed</option>
+                    <option value="2"{{$data->status == 2 ? 'selected' : false}}>Processed</option>
+                    <option value="3"{{$data->status == 3 ? 'selected' : false}}>Cancelled</option>
+                    <option value="4"{{$data->status == 4 ? 'selected' : false}}>Pending</option>
+                </select>
             </div>
             <br>
             <button type="submit" class="btn btn-primary">Xác nhận</button>

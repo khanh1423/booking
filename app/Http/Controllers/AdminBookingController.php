@@ -14,7 +14,16 @@ class AdminBookingController extends Controller
     }
 
     public function edit(Request $request){
+        $data = Booking::find($request->id);
+        
+        return view('admin.booking.edit_booking', compact('data'));
+    }
 
-        return view('admin.booking.edit_booking');
+    public function update(Request $request, $id){
+        Booking::where('id', $id)->update([
+            'status' => $request->status
+        ]);
+
+        return redirect(route('admin.booking.index'))->with('update_booking','Successfully Complete');
     }
 }

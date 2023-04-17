@@ -47,7 +47,7 @@
                                 <option value="3">Cancelled</option>
                            </select> --}}
                         </td>
-                        <td><a href="{{route('admin.booking.edit',$item->id)}}">Edit</a></td>
+                        <td><a href="{{URL('booking/edit', $item->id)}}">Edit</a></td>
                     </tr>
                 @endforeach
             </tbody>
@@ -58,4 +58,13 @@
 <div class="content">
     
 </div>
+
+@section('js')
+    @if(Session::has('update_booking'))
+        <script>
+            alert('Successfully updated');
+        </script>
+    @endif
+@endsection
+
 @endsection
