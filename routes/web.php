@@ -28,3 +28,7 @@ Route::get('book/{slug}', 'BookingController@index')->name('book');
 Route::post('/getdate', 'BookingController@getdate')->name('getdate');
 
 Route::post('/store', 'BookingController@store')->name('booking.store');
+
+Route::get('customer', 'CustomerController@index')->name('customer.index');
+Route::get('admin/booking', 'AdminBookingController@index')->name('admin.booking.index');
+Route::get('admin/booking/{id}', 'AdminBookingController@edit')->name('admin.booking.edit');

@@ -160,16 +160,16 @@
                 <div class="sidebar-menu-2">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{{route('customer.index')}}">
                                 <i class='bx bx-plug'></i>
-                                <span>Plugins</span>
+                                <span>Customer</span>
                                 <!-- <span class="none"></span> -->
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{route('admin.booking.index')}}">
                                 <i class='bx bx-game' ></i>
-                                <span>Page Action</span>
+                                <span>Booking</span>
                                 <!-- <span class="none"></span> -->
                             </a>
                         </li>
