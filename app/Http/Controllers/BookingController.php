@@ -124,7 +124,7 @@ class BookingController extends Controller
         $booking->updated_at = new DateTime;
         $booking->save();
 
-        return redirect()->back()->with('notification','SUCCESS'); ;
+        return redirect()->back()->with('notification','SUCCESS');
     }
 
 }
